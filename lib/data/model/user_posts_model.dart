@@ -1,7 +1,7 @@
 
 class UserPostsModel {
   final int id;
-  final String userId;
+  final int userId;
   final String title;
   final String body;
 

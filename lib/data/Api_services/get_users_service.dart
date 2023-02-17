@@ -21,14 +21,13 @@ class ApiSercices {
     return users;
   }
 
-  static Future<List<dynamic>> getUserPost({String? postId}) async {
+  static Future<List<dynamic>> getUserPost({int? postId}) async {
     List userPost = [];
-    await dio.get("users/765/posts").then((value) {
+    await dio.get("users/$postId/posts").then((value) {
       userPost = value.data;
     }).catchError((e) {
       throw e.toString();
     });
-    print(userPost);
     return userPost;
   }
 }

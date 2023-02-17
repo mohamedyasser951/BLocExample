@@ -22,17 +22,20 @@ class AppCubit extends Cubit<AppStates> {
   }
 
   List<UserPostsModel> userPosts = [];
-  getUserPosts({required String postId}) async {
-    emit(GetUserPostsLoadingState());
+  getUserPosts({required int postId}) async {
+    if(userPosts.isEmpty)
+      {
+     emit(GetUserPostsLoadingState());
 
-    await ApiSercices.getUserPost().then((value) {
+    await ApiSercices.getUserPost(postId: postId).then((value) {
       for (var element in value) {
         userPosts.add(UserPostsModel.fromJson(element));
       }
-      print(value);
+      
       emit(GetUserPostsSucessState());
     }).catchError((e) {
       throw e.toString();
     });
+      }
   }
 }
