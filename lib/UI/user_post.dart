@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:bloc_examples/bloc/cubit.dart';
-import 'package:bloc_examples/bloc/states.dart';
+import 'package:bloc_examples/businessLogic/bloc/cubit.dart';
+import 'package:bloc_examples/businessLogic/bloc/states.dart';
 
 class UserPosts extends StatefulWidget {
  final int postId;

@@ -1,4 +1,4 @@
-import 'package:bloc_examples/bloc/states.dart';
+import 'package:bloc_examples/businessLogic/bloc/states.dart';
 import 'package:bloc_examples/data/Api_services/get_users_service.dart';
 import 'package:bloc_examples/data/model/user_model.dart';
 import 'package:bloc_examples/data/model/user_posts_model.dart';
