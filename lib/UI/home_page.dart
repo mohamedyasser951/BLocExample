@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({key});
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
       create: (context) => AppCubit()..getUsers(),
       child: Scaffold(
         appBar: AppBar(
-          title:const Text("Users"),
+          title: const Text("Users"),
         ),
         body: BlocConsumer<AppCubit, AppStates>(
             listener: (context, state) {},
@@ -34,7 +34,12 @@ class _HomePageState extends State<HomePage> {
                   itemBuilder: (BuildContext context, int index) {
                     return InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => UserPosts(postId: users[index].id),));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  UserPosts(postId: users[index].id),
+                            ));
                       },
                       child: ListTile(
                         leading: Text(users[index].id.toString()),

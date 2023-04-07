@@ -1,11 +1,15 @@
-import 'package:bloc_examples/bloc/cubit.dart';
-import 'package:bloc_examples/bloc/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:bloc_examples/bloc/cubit.dart';
+import 'package:bloc_examples/bloc/states.dart';
+
 class UserPosts extends StatefulWidget {
  final int postId;
- const UserPosts({key, required this.postId});
+  const UserPosts({
+    Key? key,
+    required this.postId,
+  }) : super(key: key);
 
   @override
   State<UserPosts> createState() => _UserPostsState();
@@ -20,7 +24,9 @@ class _UserPostsState extends State<UserPosts> {
         builder: (context) {
           AppCubit.get(context).getUserPosts(postId: widget.postId);
           return Scaffold(
-            appBar: AppBar(),
+            appBar: AppBar(
+              title:const Text("UserPost"),
+            ),
             body: BlocBuilder<AppCubit, AppStates>(
               builder: (context, state) {
                 @override
